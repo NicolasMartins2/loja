@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos Eletrônicos</title>
+    <link rel="stylesheet" href="css/produtos.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">Loja Tech</h1>
+            <div class="cart-container">
+                <div id="cart-icon">🛒</div>
+                <span id="cart-count">0</span>
+            </div>
+        </div>
+    </header>
+
+
+    <main>
+        <h2 class="section-title">Produtos</h2>
+        <div class="card-container" id="products-container">
+            <!-- Produtos serão carregados aqui -->
+        </div>
+    </main>
+
+
+
+    <div id="cart-container-popup">
+        <h2>Carrinho de Compras</h2>
+        <div id="cart-items">
+            <!-- Itens do carrinho serão listados aqui -->
+        </div>
+        <div class="cart-actions">
+            <button onclick="clearCart()">Limpar Carrinho</button>
+            <button onclick="checkout()">Finalizar Compra</button>
+        </div>
+    </div>
+
+<script src="js/produtos.js"></script>
+      
+    
+</body>
+</html>
