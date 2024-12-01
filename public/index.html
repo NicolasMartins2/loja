@@ -6,6 +6,11 @@
     <title>Header Futurista</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/features.css">
+    <link rel="stylesheet" href="css/produtos-destaque.css">
+    <link rel="stylesheet" href="css/carrinho-compras.css">
+    
  
     
     <!-- Bootstrap CSS -->
@@ -104,7 +109,7 @@
         </div>
       </section>
 
-      <h1>oiiiiiiiiiiiii</h1>
+
 
       
       <section id="produtos-destaque">
@@ -141,234 +146,15 @@
 
 
 
-    <script>
-// Função para obter os itens do carrinho (do LocalStorage)
-function getCartItems() {
-    return JSON.parse(localStorage.getItem('cart')) || [];
-}
-
-// Função para salvar os itens no carrinho (no LocalStorage)
-function saveCartItems(cart) {
-    localStorage.setItem('cart', JSON.stringify(cart));
-}
-
-// Função para atualizar o número de itens no carrinho (ícone fixo)
-function updateCartCount() {
-    const cart = getCartItems();
-    const cartCount = document.getElementById('cart-count');
-    cartCount.textContent = cart.reduce((acc, item) => acc + item.quantity, 0); // Conta a quantidade total de itens
-}
-
-// Função para adicionar um produto ao carrinho
-function addToCart(product) {
-    const cart = getCartItems();
-    
-    // Verifica se o produto já está no carrinho
-    const existingProduct = cart.find(item => item.id === product.id);
-    
-    if (existingProduct) {
-        // Se o produto já existe, incrementa a quantidade
-        existingProduct.quantity += 1;
-    } else {
-        // Caso contrário, adiciona o produto com quantidade 1
-        product.quantity = 1;
-        cart.push(product);
-    }
-
-    saveCartItems(cart); // Salva no localStorage
-    updateCartCount(); // Atualiza o contador de itens no ícone
-}
-
-// Função para remover um item do carrinho
-function removeFromCart(productId) {
-    let cart = getCartItems();
-    // Filtra o produto que será removido (com base no ID)
-    cart = cart.filter(item => item.id !== productId);
-    saveCartItems(cart); // Salva o novo carrinho no localStorage
-    updateCartCount(); // Atualiza o contador de itens no ícone
-    renderCartItems(); // Re-renderiza o modal com os itens atualizados
-}
-
-// Função para diminuir a quantidade de um item no carrinho
-function decreaseQuantity(productId) {
-    let cart = getCartItems();
-    const product = cart.find(item => item.id === productId);
-    
-    if (product && product.quantity > 1) {
-        product.quantity -= 1;
-        saveCartItems(cart);
-        renderCartItems(); // Atualiza o modal
-        updateCartCount(); // Atualiza o contador de itens
-    }
-}
-
-// Função para aumentar a quantidade de um item no carrinho
-function increaseQuantity(productId) {
-    let cart = getCartItems();
-    const product = cart.find(item => item.id === productId);
-
-    if (product) {
-        product.quantity += 1;
-        saveCartItems(cart);
-        renderCartItems(); // Atualiza o modal
-        updateCartCount(); // Atualiza o contador de itens
-    }
-}
-
-// Função para renderizar os itens do carrinho no modal
-function renderCartItems() {
-    const cartItemsList = document.getElementById('cart-items-list');
-    cartItemsList.innerHTML = ''; // Limpa os itens do carrinho no modal
-
-    const cart = getCartItems();
-
-    cart.forEach(item => {
-        const itemCard = document.createElement('div');
-        itemCard.classList.add('cart-item');
-        itemCard.innerHTML = `
-            <img src="${item.image}" alt="${item.name}">
-            <div>
-                <h4>${item.name}</h4>
-                <p>Preço: R$ ${item.price}</p>
-                <p>Quantidade: <span id="quantity-${item.id}">${item.quantity}</span></p>
-            </div>
-            <div class="cart-item-actions">
-                <button class="increase-quantity" data-id="${item.id}">+</button>
-                <button class="decrease-quantity" data-id="${item.id}">-</button>
-                <button class="remove-item" data-id="${item.id}">Remover</button>
-            </div>
-        `;
-        cartItemsList.appendChild(itemCard);
-    });
-
-    // Adiciona evento para os botões de aumentar e diminuir a quantidade
-    document.querySelectorAll('.increase-quantity').forEach(button => {
-        button.addEventListener('click', function(event) {
-            event.stopPropagation(); // Impede a propagação do clique para o modal
-            const productId = this.dataset.id;
-            increaseQuantity(productId); // Aumenta a quantidade do item
-        });
-    });
-
-    document.querySelectorAll('.decrease-quantity').forEach(button => {
-        button.addEventListener('click', function(event) {
-            event.stopPropagation(); // Impede a propagação do clique para o modal
-            const productId = this.dataset.id;
-            decreaseQuantity(productId); // Diminui a quantidade do item
-        });
-    });
-
-    // Adiciona evento para os botões de remover
-    document.querySelectorAll('.remove-item').forEach(button => {
-        button.addEventListener('click', function(event) {
-            event.stopPropagation(); // Impede a propagação do clique para o modal
-            const productId = this.dataset.id;
-            removeFromCart(productId); // Remove o item do carrinho
-        });
-    });
-}
-
-// Função para abrir o modal do carrinho
-document.getElementById('cart-icon').addEventListener('click', function(event) {
-    const cartModal = document.getElementById('cart-modal');
-    
-    // Renderiza os itens do carrinho
-    renderCartItems();
-
-    // Exibe o modal
-    cartModal.style.display = 'flex';
-    event.stopPropagation(); // Previne o fechamento imediato ao clicar no carrinho
-});
-
-// Função para fechar o modal do carrinho
-document.getElementById('close-cart-modal').addEventListener('click', () => {
-    document.getElementById('cart-modal').style.display = 'none';
-});
-
-// Função para fechar o modal do carrinho ao clicar fora dele
-document.addEventListener('click', function(event) {
-    const cartModal = document.getElementById('cart-modal');
-    const cartIcon = document.getElementById('cart-icon');
-
-    // Verifica se o clique foi fora do modal ou do ícone do carrinho
-    if (!cartModal.contains(event.target) && !cartIcon.contains(event.target)) {
-        cartModal.style.display = 'none'; // Fecha o modal
-    }
-});
-
-// Função para buscar produtos do backend
-function fetchProducts() {
-    fetch('/produtos')
-        .then(response => response.json())
-        .then(produtos => {
-            renderProducts(produtos);
-        })
-        .catch(error => console.error('Erro ao carregar os produtos:', error));
-}
-
-// Função para renderizar os produtos no DOM
-function renderProducts(produtos) {
-    const produtosLista = document.getElementById('produtos-lista');
-    produtosLista.innerHTML = ''; // Limpa os produtos existentes
-
-    produtos.forEach(produto => {
-        const produtoCard = document.createElement('div');
-        produtoCard.classList.add('produto-card');
-        produtoCard.innerHTML = `
-            <img src="${produto.imagem_url}" alt="${produto.nome}">
-            <h3>${produto.nome}</h3>
-            <p>Preço: R$ ${produto.preco}</p>
-            <p>Quantidade: ${produto.quantidade}</p>
-            <button class="add-to-cart" 
-                    data-product-id="${produto.id}" 
-                    data-product-name="${produto.nome}" 
-                    data-product-price="${produto.preco}" 
-                    data-product-image="${produto.imagem_url}">
-                Adicionar ao Carrinho
-            </button>
-        `;
-        produtosLista.appendChild(produtoCard);
-    });
-
-    // Configura os botões de "Adicionar ao Carrinho"
-    setupAddToCartButtons();
-}
-
-// Função para configurar os botões de "Adicionar ao Carrinho"
-function setupAddToCartButtons() {
-    document.querySelectorAll('.add-to-cart').forEach(button => {
-        button.addEventListener('click', function() {
-            const product = {
-                id: this.dataset.productId,
-                name: this.dataset.productName,
-                price: parseFloat(this.dataset.productPrice),
-                image: this.dataset.productImage
-            };
-
-            addToCart(product); // Adiciona o produto ao carrinho
-        });
-    });
-}
-
-// Atualiza o contador de itens no carrinho quando a página é carregada
-document.addEventListener('DOMContentLoaded', function() {
-    updateCartCount(); // Atualiza o contador de itens no ícone
-    fetchProducts(); // Carrega os produtos ao carregar a página
-});
 
 
-
-
-
-
-           
-
-
-    </script>
     
     <!-- Bootstrap JS, Popper.js, and jQuery -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/carrinho.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/produtos.js"></script>
 </body>
 </html>

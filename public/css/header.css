@@ -1,0 +1,175 @@
+/* Estilos globais */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Header */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 15px 30px;
+    background-color: #000000;
+}
+
+/* Logo */
+.logo img {
+    width: 250px;
+    height: auto;
+}
+
+/* Barra de busca */
+.search-bar {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    width: 100%;
+    max-width: 500px;
+}
+
+.search-bar input {
+    width: 100%;
+    max-width: 500px;
+    padding: 11px;
+    font-size: 16px;
+    border: none;
+    border-radius: 20px 0 0 20px;
+    outline: none;
+}
+
+.search-bar button {
+    padding: 11px;
+    font-size: 16px;
+    border: none;
+    border-radius: 0 20px 20px 0;
+    background-color: rgb(202, 201, 201);
+    color: #0b0b21;
+    cursor: pointer;
+}
+
+/* Ícones no Header */
+.header-icons {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.icon {
+    text-align: center;
+    color: white;
+}
+
+.icon span {
+    display: block;
+    font-size: 14px;
+    margin-top: 5px;
+    color: white;
+}
+
+.header-icons a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+}
+
+/* Nav Bar */
+.nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centraliza os itens */
+    flex-wrap: wrap; /* Permite quebra de linha quando necessário */
+    padding: 15px;
+    background-color: #00ff00;
+    position: relative; /* Necessário para alinhar o botão hambúrguer */
+    overflow: hidden;
+}
+
+/* Links do menu */
+.nav-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center; /* Centraliza os itens */
+    flex-wrap: wrap;
+    width: auto; /* Ocupa apenas o espaço necessário em telas grandes */
+    overflow: hidden; /* Oculta o conteúdo no modo responsivo */
+    max-height: none; /* Garante visibilidade em telas grandes */
+    transition: max-height 0.3s ease; /* Animação suave ao abrir/fechar */
+}
+
+/* Links do menu */
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    text-align: center;
+}
+
+.nav-links a:hover {
+    color: #0c0c2b;
+}
+
+/* Menu expandido */
+.nav-links.active {
+    max-height: 500px; /* Expande no modo responsivo */
+}
+
+/* Botão Hambúrguer */
+.hamburger-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    position: absolute; /* Fixa no topo do nav-bar */
+    top: 15px; /* Coloca a uma distância de 15px do topo */
+    left: 50%; /* Move horizontalmente para o centro */
+    transform: translateX(-50%); /* Centraliza completamente */
+    z-index: 10; /* Garante que o botão fique acima do menu */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+      /* Reduz o padding da nav-bar */
+      .nav-bar {
+        padding: 2px 2px; /* Diminui o padding */
+    }
+    /* Exibe o botão hambúrguer */
+    .hamburger-btn {
+        display: block;
+        margin-top: -5px;
+      
+    }
+
+    /* Itens do menu em coluna */
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%; /* Ocupa toda a largura */
+        max-height: 0; /* Fecha inicialmente */
+        transition: max-height 0.3s ease; /* Transição suave ao abrir o menu */
+        margin-top: 50px; /* Adiciona um pequeno espaço superior ao abrir o menu */
+    }
+
+    .nav-links.active {
+        max-height: 500px; /* Define altura suficiente para exibir os links */
+    }
+
+    .nav-links a {
+        padding: 10px 20px;
+        border-bottom: 1px solid white;
+    }
+
+    .nav-links a:last-child {
+        border-bottom: none;
+    }
+}

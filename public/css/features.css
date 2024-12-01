@@ -1,0 +1,92 @@
+.features-section {
+    display: flex;
+    flex-wrap: wrap; /* Permite os itens quebrarem linha */
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    align-items: center; /* Centraliza os itens verticalmente */
+    background-color: #eaeaea; /* Cor de fundo semelhante à imagem */
+    padding: 20px 10px; /* Ajusta o espaçamento interno */
+  }
+  
+  .feature {
+    text-align: center;
+    max-width: 200px;
+    margin: 10px; /* Espaçamento entre os itens */
+    flex: 1 1 200px; /* Flex-grow, shrink e basis para itens responsivos */
+  }
+  
+  .feature .icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 10px;
+    border: 2px solid #000;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+  }
+  
+  .feature .icon i {
+    color: #000;
+  }
+  
+  .feature h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 10px 0 5px;
+  }
+  
+  .feature p {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  /* Ajustes para telas menores sem empilhar */
+@media (max-width: 768px) {
+    .features-section {
+      padding: 10px; /* Reduz o espaçamento */
+    }
+  
+    .feature {
+      margin: 5px; /* Menor espaçamento entre os itens */
+    }
+  
+    .feature .icon {
+      width: 50px; /* Ícones menores */
+      height: 50px;
+      font-size: 20px; /* Texto dos ícones menor */
+    }
+  
+    .feature h3 {
+      font-size: 14px; /* Texto do título menor */
+    }
+  
+    .feature p {
+      font-size: 12px; /* Texto da descrição menor */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .features-section {
+      justify-content: space-between; /* Itens mais próximos para caber na tela */
+    }
+  
+    .feature {
+      flex: 1 1 auto; /* Mantém lado a lado, sem forçar largura fixa */
+      margin: 5px;
+    }
+  
+    .feature .icon {
+      width: 40px;
+      height: 40px;
+      font-size: 18px;
+    }
+  
+    .feature h3 {
+      font-size: 12px;
+    }
+  
+    .feature p {
+      font-size: 10px;
+    }
+  }

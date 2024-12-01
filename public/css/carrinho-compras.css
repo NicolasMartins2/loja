@@ -1,0 +1,136 @@
+/* Ícone do carrinho */
+.cart {
+    position: relative;
+}
+
+.cart .cart-count {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: #00ff00;
+    color: #0b0b21;
+    border-radius: 50%;
+    padding: 4px 8px;
+    font-size: 14px;
+}
+
+/* Estilo do ícone de carrinho fixo */
+.cart-icon {
+  position: fixed;
+  bottom: 20px; /* Distância da parte inferior da tela */
+  right: 20px;  /* Distância da parte direita da tela */
+  background-color: #00ff00; /* Cor de fundo verde */
+  color: #fff; /* Cor do texto (branco) */
+  padding: 15px;
+  border-radius: 50%; /* Torna o ícone redondo */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  cursor: pointer;
+  z-index: 1000; /* Garante que o ícone esteja sempre acima de outros elementos */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px; /* Tamanho do ícone */
+}
+
+/* Ícone de carrinho com o número de itens */
+.cart-icon span {
+  position: absolute;
+  top: -5px; /* Ajuste para ficar acima do ícone */
+  right: -5px; /* Ajuste para ficar no canto superior direito */
+  background-color: #ff0000; /* Cor de fundo vermelha para o contador */
+  color: white; /* Cor do texto (branco) */
+  border-radius: 50%;
+  padding: 5px 10px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* Efeito de hover para o ícone de carrinho */
+.cart-icon:hover {
+  background-color: #00cc00; /* Altera a cor de fundo para um tom mais escuro de verde ao passar o mouse */
+  transform: scale(1.1); /* Aumenta o tamanho do ícone levemente ao passar o mouse */
+  transition: background-color 0.3s, transform 0.3s; /* Transição suave */
+}
+
+/* Estilos para o modal do carrinho */
+.cart-modal {
+  display: none; /* Modal começa escondido */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fundo semitransparente */
+  z-index: 9999; /* Fica acima de outros elementos */
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Conteúdo do modal */
+.cart-modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 600px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  overflow-y: auto;
+}
+
+.cart-modal h2 {
+  margin: 0 0 20px 0;
+  font-size: 24px;
+  text-align: center;
+}
+
+.cart-modal .cart-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.cart-modal .cart-item img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.cart-modal .cart-item h4 {
+  margin: 0;
+}
+
+.cart-modal .cart-item p {
+  margin: 0;
+  color: #666;
+}
+
+.cart-modal .close-modal {
+  display: block;
+  margin: 20px auto 0;
+  background-color: #00cc00;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cart-modal .close-modal:hover {
+  background-color: #00a800;
+}
+
+/* Animação de fade-in para o modal */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
