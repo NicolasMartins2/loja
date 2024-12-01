@@ -3,11 +3,12 @@
     flex-wrap: wrap; /* Permite os itens quebrarem linha */
     justify-content: center; /* Centraliza os itens horizontalmente */
     align-items: center; /* Centraliza os itens verticalmente */
-    background-color: #eaeaea; /* Cor de fundo semelhante à imagem */
+    background-color: #000000; /* Cor de fundo semelhante à imagem */
     padding: 20px 10px; /* Ajusta o espaçamento interno */
   }
   
   .feature {
+    color: white !important;
     text-align: center;
     max-width: 200px;
     margin: 10px; /* Espaçamento entre os itens */
@@ -15,10 +16,11 @@
   }
   
   .feature .icon {
+    color: white;
     width: 60px;
     height: 60px;
     margin: 0 auto 10px;
-    border: 2px solid #000;
+    border: 2px solid #ffffff;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -27,18 +29,19 @@
   }
   
   .feature .icon i {
-    color: #000;
+    color: #ffffff;
   }
   
   .feature h3 {
     font-size: 16px;
     font-weight: bold;
     margin: 10px 0 5px;
+    color: white;
   }
   
   .feature p {
     font-size: 14px;
-    color: #666;
+    color: #ffffff;
   }
   
   /* Ajustes para telas menores sem empilhar */

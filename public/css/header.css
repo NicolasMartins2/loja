@@ -2,6 +2,7 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
+    background-color: #000000 !important;
 }
 
 /* Header */
@@ -12,6 +13,14 @@ body {
     flex-wrap: wrap;
     padding: 15px 30px;
     background-color: #000000;
+}
+
+.a-atendimento{
+    text-decoration: none !important;
+}
+
+.a-atendimento :hover{
+    color: #00ff00;
 }
 
 /* Logo */
@@ -108,7 +117,7 @@ body {
 /* Links do menu */
 .nav-links a {
     color: white;
-    text-decoration: none;
+    text-decoration: none !important;
     font-size: 16px;
     text-align: center;
 }
@@ -122,54 +131,64 @@ body {
     max-height: 500px; /* Expande no modo responsivo */
 }
 
-/* Botão Hambúrguer */
-.hamburger-btn {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 24px;
-    color: white;
-    cursor: pointer;
-    position: absolute; /* Fixa no topo do nav-bar */
-    top: 15px; /* Coloca a uma distância de 15px do topo */
-    left: 50%; /* Move horizontalmente para o centro */
-    transform: translateX(-50%); /* Centraliza completamente */
-    z-index: 10; /* Garante que o botão fique acima do menu */
+
+
+/* Responsividade */
+@media (max-width: 1180px) { 
+    .header-icons {
+        margin: auto;
+    }
 }
 
 /* Responsividade */
+@media (max-width: 1180px) { 
+    .header-icons {
+        margin: auto;
+    }
+}
+
 @media (max-width: 768px) {
-      /* Reduz o padding da nav-bar */
-      .nav-bar {
-        padding: 2px 2px; /* Diminui o padding */
-    }
-    /* Exibe o botão hambúrguer */
-    .hamburger-btn {
-        display: block;
-        margin-top: -5px;
-      
+    /* Header */
+    .header {
+        flex-direction: column; /* Organiza itens em coluna */
+        align-items: center; /* Centraliza os itens */
+        gap: 10px; /* Adiciona um leve espaçamento entre os elementos */
+        padding: 15px; /* Mantém o padding geral compacto */
     }
 
-    /* Itens do menu em coluna */
+    /* Barra de busca */
+    .search-bar {
+        margin: 10px 0; /* Pequeno espaçamento acima e abaixo */
+        width: 95%; /* Levemente mais largo para telas menores */
+    }
+
+    /* Ícones do Header */
+    .header-icons {
+        gap: 20px; /* Aumenta levemente o espaçamento entre os ícones */
+        margin: 10px 0; /* Adiciona um espaçamento menor */
+    }
+
+    /* Nav-bar */
+    .nav-bar {
+        padding: 15px; /* Mantém o espaço interno consistente */
+    }
+
+    /* Links da Nav-bar */
     .nav-links {
-        flex-direction: column;
-        gap: 10px;
-        width: 100%; /* Ocupa toda a largura */
-        max-height: 0; /* Fecha inicialmente */
-        transition: max-height 0.3s ease; /* Transição suave ao abrir o menu */
-        margin-top: 50px; /* Adiciona um pequeno espaço superior ao abrir o menu */
+        flex-direction: row; /* Alinha os links horizontalmente */
+        gap: 10px; /* Leve aumento do espaçamento entre os links */
+        width: auto; /* Mantém os links na largura necessária */
+        max-height: none; /* Remove o limite de altura */
     }
 
-    .nav-links.active {
-        max-height: 500px; /* Define altura suficiente para exibir os links */
-    }
-
+    /* Ajustes individuais para links */
     .nav-links a {
-        padding: 10px 20px;
-        border-bottom: 1px solid white;
+        padding: 5px 10px; /* Mantém o padding compacto */
+        border: none; /* Remove a borda dos links */
     }
 
     .nav-links a:last-child {
-        border-bottom: none;
+        border-bottom: none; /* Remove a borda apenas do último link */
     }
 }
+

@@ -1,15 +1,17 @@
  /* Estilo para a seção de produtos */
  #produtos-destaque {
+  margin-top: -1rem;
     padding: 50px 20px;
-    background-color: #f4f4f4;
+    background-color: #000000;
     text-align: center;
   }
   
   /* Título da seção */
   #produtos-destaque h2 {
+    text-align: left;
     font-size: 2.5em;
     margin-bottom: 30px;
-    color: #333;
+    color: #e2e2e2;
   }
   
   /* Contêiner da lista de produtos */
