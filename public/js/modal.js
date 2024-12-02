@@ -23,6 +23,41 @@ function renderCartItems() {
         cartItemsList.appendChild(itemCard);
     });
 
+     // Adicionando o botão "Finalizar Compra"
+     const checkoutButton = document.createElement('button');
+     checkoutButton.id = 'checkout-button';
+     checkoutButton.textContent = 'Finalizar Compra';
+     checkoutButton.classList.add('checkout-button');
+     cartItemsList.appendChild(checkoutButton);
+ 
+     document.querySelectorAll('.increase-quantity').forEach(button => {
+         button.addEventListener('click', function(event) {
+             event.stopPropagation();
+             const productId = this.dataset.id;
+             increaseQuantity(productId);
+         });
+     });
+ 
+     document.querySelectorAll('.decrease-quantity').forEach(button => {
+         button.addEventListener('click', function(event) {
+             event.stopPropagation();
+             const productId = this.dataset.id;
+             decreaseQuantity(productId);
+         });
+     });
+ 
+     document.querySelectorAll('.remove-item').forEach(button => {
+         button.addEventListener('click', function(event) {
+             event.stopPropagation();
+             const productId = this.dataset.id;
+             removeFromCart(productId);
+         });
+     });
+ 
+     // Listener para "Finalizar Compra"
+     checkoutButton.addEventListener('click', () => redirectToCheckout());
+ }
+
     document.querySelectorAll('.increase-quantity').forEach(button => {
         button.addEventListener('click', function(event) {
             event.stopPropagation();
@@ -46,7 +81,37 @@ function renderCartItems() {
             removeFromCart(productId);
         });
     });
+//
+
+//
+async function redirectToCheckout() {
+    const cart = getCartItems();
+    if (cart.length === 0) {
+        alert('Seu carrinho está vazio!');
+        return;
+    }
+
+    try {
+        const response = await fetch('/create-checkout-session', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(cart),
+        });
+
+        const session = await response.json();
+        if (session.url) {
+            window.location.href = session.url; // Redireciona para o Stripe
+        } else {
+            alert('Erro ao redirecionar para o pagamento.');
+        }
+    } catch (error) {
+        console.error('Erro ao criar sessão de checkout:', error);
+        alert('Ocorreu um erro ao tentar finalizar a compra.');
+    }
 }
+//
 
 document.getElementById('cart-icon').addEventListener('click', function(event) {
     const cartModal = document.getElementById('cart-modal');
