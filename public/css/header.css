@@ -23,6 +23,63 @@ body {
     color: #00ff00;
 }
 
+/* Classe para esconder o elemento */
+.hidden {
+    display: none;
+}
+
+/* Estilo do span com o nome do usuário */
+#account-text {
+    color: white;  /* Cor do texto */
+    font-size: 18px;  /* Fonte maior do que o "Olá" */
+    font-weight: 300;  /* Deixa o nome em negrito */
+    font-family: 'Arial', sans-serif;  /* Fonte padrão */
+    margin-left: 10px;  /* Distância entre o ícone e o nome */
+    text-transform: capitalize;  /* Primeira letra maiúscula de cada palavra */
+    transition: all 0.3s ease;  /* Suaviza a transição de qualquer mudança */
+}
+
+/* Adiciona um efeito de hover */
+#account-text:hover {
+    color: #f1f1f1;  /* Cor mais clara no hover */
+    cursor: pointer;  /* Muda o cursor para indicar que é clicável */
+}
+
+
+/* Botão de logout - Estilos personalizados */
+#logout-button {
+    font-weight: bold;
+    background-color: #ff0000;  /* Cor de fundo vermelho */
+    color: white;  /* Texto branco */
+    border: none;  /* Remove borda padrão */
+    padding: 10px 20px;  /* Espaçamento interno */
+    font-size: 16px;  /* Tamanho da fonte */
+    border-radius: 5px;  /* Bordas arredondadas */
+    cursor: pointer;  /* Cursor de mãozinha ao passar sobre o botão */
+    transition: all 0.3s ease;  /* Transição suave */
+    
+}
+
+/* Alterando a cor de fundo e o efeito do botão ao passar o mouse */
+#logout-button:hover {
+    background-color: #e60000;  /* Cor de fundo vermelha mais escura */
+    transform: translateY(-3px);  /* Leve elevação ao passar o mouse */
+}
+
+/* Efeito de foco para o botão */
+#logout-button:focus {
+    outline: none;  /* Remove o contorno padrão ao focar */
+    box-shadow: 0 0 10px rgba(255, 77, 77, 0.6);  /* Adiciona uma sombra suave */
+}
+
+/* Adicionando um efeito de transição suave */
+#logout-button:active {
+    background-color: #cc0000;  /* Cor de fundo ao clicar */
+    transform: translateY(1px);  /* Efeito de pressionar */
+}
+
+
+
 /* Logo */
 .logo img {
     width: 250px;

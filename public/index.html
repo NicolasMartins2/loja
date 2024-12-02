@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página inicial</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/features.css">
     <link rel="stylesheet" href="css/produtos-destaque.css">
@@ -26,20 +25,25 @@
             <button><i class="fa fa-search"></i></button>
         </div>
         <div class="header-icons">
-            
-            <a href="" class="a-atendimento">
-                <div class="icon">
-                    <i class="fa fa-comments"></i>
-                    <span>Atendimento</span>
-                </div>
-            </a>
+    
 
-            <a href="" class="a-atendimento">
-                <div class="icon">
-                    <i class="fa fa-user"></i>
-                    <span>Minha conta</span>
-                </div>
-            </a>
+<!-- O botão de login do Google -->
+<div id="google-signin-button"></div>
+
+<!-- O texto "Minha conta" que aparecerá após o login (inicialmente escondido com a classe "hidden") -->
+<span id="account-text" class="hidden">Minha conta</span>
+
+
+<!-- O botão de logout (inicialmente escondido com a classe "hidden") -->
+<button id="logout-button" class="hidden" onclick="logout()">Sair</button>
+
+
+
+
+              
+
+            
+       
 
         </div>
     </header>
@@ -134,13 +138,22 @@
         <button id="close-cart-modal" class="close-modal">Fechar</button>
     </div>
 </div>
+
+
     
     <!-- Bootstrap JS, Popper.js, and jQuery -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
     <script src="js/carrinho.js"></script>
     <script src="js/modal.js"></script>
-    <script src="js/produtos.js"></script>
+    <script src="js/produtos.js"></script>]
+    <script src="js/google.js"></script>
+
+
+
+
 </body>
 </html>

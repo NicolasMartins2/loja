@@ -12,7 +12,13 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.21.1",
+    "express-session": "^1.18.1",
+    "google-auth-library": "^9.15.0",
+    "googleapis": "^144.0.0",
+    "jwt-decode": "^4.0.0",
     "mysql2": "^3.11.5",
+    "passport": "^0.7.0",
+    "passport-google-oauth20": "^2.0.0",
     "stripe": "^17.4.0"
   }
 }

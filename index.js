@@ -2,9 +2,18 @@ const express = require('express');
 const mysql = require('mysql2');
 const cors = require('cors');
 const Stripe = require('stripe');
+const { OAuth2Client } = require('google-auth-library');
+const path = require('path');
 
 // Inicializar o Stripe com sua chave secreta
 const stripe = Stripe('sk_test_51QDOmoHkxHLashFy55RFxo2mL2rtoerTwmNlEAHlXzgIKnqkL27DzQjH2Wg9B4gDcGtUixjhV1PjV6wvkWlPposO00BxUtGmP3');
+
+// Configuração do cliente OAuth do Google
+const CLIENT_ID = '76113149783-absumgsmgsjf4hg99fq966p29a56aofq.apps.googleusercontent.com';
+const client = new OAuth2Client(CLIENT_ID);
+
+// Variável para armazenar o estado do usuário logado
+let loggedUser = null;
 
 const app = express();
 const PORT = 3000;
@@ -83,7 +92,47 @@ app.post('/create-checkout-session', async (req, res) => {
     }
 });
 
-// Servindo as páginas de sucesso e cancelamento
+// Endpoint para autenticação com o Google
+app.post('/auth/google', async (req, res) => {
+    const { token } = req.body;
+
+    try {
+        const ticket = await client.verifyIdToken({
+            idToken: token,
+            audience: CLIENT_ID, // Especifica o CLIENT_ID
+        });
+
+        const payload = ticket.getPayload();
+        
+        // Armazenar as informações do usuário
+        loggedUser = {
+            name: payload.name,
+            email: payload.email,
+            picture: payload.picture,
+        };
+
+        // Retorna as informações do usuário autenticado
+        res.status(200).json({
+            name: payload.name,
+            email: payload.email,
+            picture: payload.picture,
+        });
+    } catch (error) {
+        console.error('Erro na verificação do token do Google:', error);
+        res.status(400).json({ error: 'Erro ao autenticar com o Google.' });
+    }
+});
+
+// Endpoint para mostrar as informações do usuário logado
+app.get('/user', (req, res) => {
+    if (loggedUser) {
+        res.json(loggedUser);
+    } else {
+        res.status(401).json({ error: 'Usuário não autenticado' });
+    }
+});
+
+// Rota para servir as páginas de sucesso e cancelamento
 app.get('/sucesso.html', (req, res) => {
     res.sendFile(path.join(__dirname, 'sucesso.html'));
 });
