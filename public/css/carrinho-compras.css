@@ -133,7 +133,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Fundo semitransparente */
+  background-color: rgba(0, 0, 0, 0.7); /* Fundo semitransparente com opacidade mais forte */
   z-index: 9999; /* Fica acima de outros elementos */
   justify-content: center;
   align-items: center;
@@ -142,12 +142,13 @@
 
 /* Conteúdo do modal */
 .cart-modal-content {
-  background-color: #fff;
+  background-color: #121212; /* Fundo escuro com base no tema */
+  color: #e0e0e0; /* Texto em cinza claro */
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 12px;
   width: 80%;
   max-width: 600px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Sombra mais sutil e suave */
   overflow-y: auto;
   display: flex;
   flex-direction: column;
@@ -155,34 +156,43 @@
   height: 80vh; /* Altura adaptável */
 }
 
+/* Título do modal */
 .cart-modal h2 {
   margin: 0 0 20px 0;
-  font-size: 24px;
+  font-size: 26px;
   text-align: center;
+  color: #00ff00; /* Verde vibrante no título */
+  font-weight: bold;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5); /* Sombra leve no título */
 }
 
 /* Cart Items */
 .cart-modal .cart-item {
   display: flex;
   justify-content: space-between;
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
+  padding: 12px;
+  border-bottom: 1px solid #333; /* Linha de separação escura */
+  color: #e0e0e0; /* Cor do texto nos itens */
 }
 
 .cart-modal .cart-item img {
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   object-fit: cover;
-  margin-right: 10px;
+  margin-right: 12px;
+  border-radius: 8px;
 }
 
 .cart-modal .cart-item h4 {
   margin: 0;
+  font-size: 16px;
+  font-weight: 600;
 }
 
 .cart-modal .cart-item p {
   margin: 0;
-  color: #666;
+  font-size: 14px;
+  color: #aaa; /* Cor mais suave para detalhes */
 }
 
 /* Estilos para o botão de fechar modal */
@@ -192,27 +202,27 @@
   background-color: #cc0000;
   color: white;
   border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  border-radius: 5px;
+  padding: 12px 30px;
+  font-size: 18px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .cart-modal .close-modal:hover {
   background-color: #ff0000;
+  transform: scale(1.05); /* Aumenta levemente o tamanho do botão */
 }
 
 /* Animação de fade-in para o modal */
 @keyframes fadeIn {
   from {
-      opacity: 0;
+    opacity: 0;
   }
   to {
-      opacity: 1;
+    opacity: 1;
   }
 }
-
 
 /* Responsividade geral */
 @media (max-width: 1024px) {
@@ -222,7 +232,7 @@
   }
 
   .cart-modal h2 {
-    font-size: 20px; /* Reduz o tamanho da fonte do título */
+    font-size: 22px; /* Reduz o tamanho da fonte do título */
   }
 
   .cart-modal .cart-item {

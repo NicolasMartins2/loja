@@ -1,153 +1,164 @@
- /* Estilo para a seção de produtos */
- #produtos-destaque {
-  margin-top: -1rem;
-    padding: 50px 20px;
-    background-color: #000000;
-    text-align: center;
-  }
-  
-  /* Título da seção */
-  #produtos-destaque h2 {
-    text-align: left;
-    font-size: 2.5em;
-    margin-bottom: 30px;
-    color: #e2e2e2;
-  }
-  
+/* Estilo para a seção de produtos */
+#produtos-destaque {
+  padding: 50px 20px;
+  background-color: #000000; /* Fundo preto */
+  text-align: center;
+  color: #e2e2e2; /* Texto claro */
+}
+
+/* Título da seção */
+#produtos-destaque h2 {
+  text-align: center;
+  font-size: 2.8em;
+  margin-bottom: 30px;
+  color: #ffffff; /* Branco puro */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-bottom: 2px solid #00cc00; /* Linha decorativa */
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
 /* Estilização do botão "btn-ver" */
 .btn-ver {
   text-decoration: none !important;
   display: inline-block;
-  padding: 10px 20px;
-  background-color: #007BFF; /* Cor azul */
-  color: #fff; /* Texto branco */
-  font-size: 16px;
+  padding: 8px 16px; /* Diminuir o padding para reduzir o tamanho */
+  background-color: #00cc00; /* Verde vibrante */
+  color: #ffffff; /* Texto branco */
+  font-size: 14px; /* Tamanho menor do texto */
   font-weight: bold;
   text-align: center;
-  text-decoration: none; /* Remove sublinhado */
-  border: none; /* Remove borda padrão */
   border-radius: 5px; /* Cantos arredondados */
-  cursor: pointer; /* Cursor de mão ao passar */
+  cursor: pointer;
   transition: all 0.3s ease; /* Transição suave para hover */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra leve */
+  box-shadow: 0 4px 10px rgba(0, 255, 0, 0.3); /* Sombra com a cor do botão */
+  margin-bottom: 10px; /* Adiciona uma margem inferior para afastar do botão "Adicionar ao Carrinho" */
 }
 
 /* Efeito de hover */
 .btn-ver:hover {
-  color: white;
-  background-color: #00cc00; /* Azul mais escuro */
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Sombra mais intensa */
+  background-color: #00e600; /* Tom mais claro de verde */
+  box-shadow: 0 6px 15px rgba(0, 255, 0, 0.4);
   transform: scale(1.05); /* Leve aumento no tamanho */
+  color: white !important;
 }
 
 
 
-/* Ajuste para dispositivos móveis */
+
+.produtos-lista {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 colunas fixas */
+  gap: 30px;
+  justify-items: center;
+  margin-top: 40px;
+}
+
+
+/* Estilo do card de produto */
+.produto-card {
+  background: linear-gradient(145deg, #1a1a1a, #2b2b2b); /* Fundo gradiente sutil */
+  border: 1px solid #333;
+  border-radius: 10px;
+  padding: 20px;
+  width: 100%;
+  max-width: 300px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5); /* Sombra mais intensa */
+  transition: all 0.3s ease;
+}
+
+.produto-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.8);
+  border-color: #00cc00; /* Destaque no contorno */
+}
+
+/* Imagem do produto */
+.produto-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombra na imagem */
+}
+
+/* Nome do produto */
+.produto-card h3 {
+  font-size: 1.6em;
+  margin-bottom: 10px;
+  color: #ffffff; /* Branco puro */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Preço do produto */
+.produto-card p {
+  font-size: 1.3em;
+  color: #00cc00; /* Verde vibrante */
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+/* Botão de adicionar ao carrinho */
+.produto-card button {
+  padding: 12px 20px;
+  background-color: #00cc00;
+  color: white;
+  font-size: 1em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease, transform 0.3s;
+  margin-bottom: 20px;
+}
+
+.produto-card button:hover {
+  background-color: #00e600;
+  transform: scale(1.05); /* Leve aumento no botão */
+}
+
+/* Responsividade para telas menores */
 @media (max-width: 768px) {
-  .btn-ver {
-      font-size: 14px;
-      padding: 8px 16px;
+  #produtos-destaque h2 {
+      font-size: 2.2em;
+  }
+
+  .produtos-lista {
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas em telas ainda menores */
+  }
+
+  .produto-card {
+      max-width: 260px;
+  }
+}
+
+@media (max-width: 480px) {
+  #produtos-destaque h2 {
+      font-size: 1.8em;
+  }
+
+  .produtos-lista {
+      grid-template-columns: 1fr;
+  }
+
+  .produto-card {
+      max-width: 100%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .produtos-lista {
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas em telas menores */
   }
 }
 
 
-  /* Contêiner da lista de produtos */
+
+@media (max-width: 480px) {
   .produtos-lista {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-    justify-items: center;
-    margin-top: 20px;
+    grid-template-columns: 1fr; /* 1 coluna em telas muito pequenas */
   }
-  
-  /* Estilo do card de produto */
-  .produto-card {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 20px;
-    width: 100%;
-    max-width: 300px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-  }
-  
-  .produto-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-  }
-  
-  /* Imagem do produto */
-  .produto-card img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 15px;
-  }
-  
-  /* Nome do produto */
-  .produto-card h3 {
-    font-size: 1.4em;
-    margin-bottom: 10px;
-    color: #333;
-  }
-  
-  /* Preço do produto */
-  .produto-card p {
-    font-size: 1.2em;
-    color: #00cc00;
-    margin-bottom: 15px;
-  }
-  
-  /* Botão de adicionar ao carrinho */
-  .produto-card button {
-    padding: 12px 20px;
-    background-color: #00cc00;
-    color: white;
-    font-size: 1em;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100%;
-    transition: background-color 0.3s;
-    margin-bottom: 20px;
-  }
-  
-  /* Efeito hover no botão */
-  .produto-card button:hover {
-    background-color: #009900;
-  }
-  
-  /* Responsividade para telas menores */
-  @media (max-width: 768px) {
-    #produtos-destaque h2 {
-        font-size: 2em;
-    }
-  
-    .produtos-lista {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    }
-  
-    .produto-card {
-        max-width: 250px;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .produto-card {
-        max-width: 100%;
-        padding: 15px;
-    }
-  
-    #produtos-destaque h2 {
-        font-size: 1.8em;
-    }
-  }
+}
 
-
-
-  
-
-
-  
-  

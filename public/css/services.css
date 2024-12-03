@@ -1,0 +1,109 @@
+.services {
+    margin-top: -2rem;
+    padding: 60px 20px;
+    background: linear-gradient(180deg, #000000, #111111); /* Gradiente sutil no fundo */
+    color: #ffffff; /* Texto branco */
+    text-align: center;
+}
+
+/* Título principal da seção */
+.services h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    color: #ffffff; /* Branco puro */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 3px solid #00cc00; /* Linha decorativa */
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+/* Card de serviço */
+.service-box {
+    background: linear-gradient(145deg, #1a1a1a, #292929); /* Fundo gradiente escuro */
+    border-radius: 12px;
+    padding: 25px;
+    width: 28%; /* Cards com largura mais ajustada */
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.4); /* Sombras mais intensas */
+    transition: all 0.4s ease; /* Transição mais fluida */
+    margin: 15px;
+    text-align: center; /* Centraliza o conteúdo */
+    position: relative;
+    overflow: hidden; /* Esconde elementos fora do card */
+}
+
+/* Efeito de destaque no hover */
+.service-box:hover {
+    background: linear-gradient(145deg, #00cc00, #00ff00); /* Destaque em gradiente verde */
+    transform: translateY(-10px);
+    box-shadow: 0px 12px 25px rgba(0, 255, 0, 0.3); /* Sombra colorida */
+}
+
+/* Ícone dos serviços */
+.service-box .icon {
+    font-size: 50px;
+    margin-bottom: 20px;
+    color: #00cc00; /* Verde vibrante */
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.service-box:hover .icon {
+    color: #ffffff; /* Ícone fica branco ao passar o mouse */
+    transform: scale(1.2); /* Leve aumento */
+}
+
+/* Título do serviço */
+.service-box h3 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    color: #ffffff; /* Título em branco */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.service-box:hover h3 {
+    color: #111111; /* Destaque invertido no hover */
+}
+
+/* Descrição do serviço */
+.service-box p {
+    font-size: 1em;
+    color: #cccccc; /* Texto em cinza claro */
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+/* Container flexível */
+.services .container {
+    display: flex;
+    justify-content: center; /* Centraliza os itens */
+    gap: 30px;
+    flex-wrap: wrap; /* Ajusta automaticamente para múltiplas linhas */
+}
+
+/* Responsividade para telas médias */
+@media (max-width: 768px) {
+    .service-box {
+        width: 45%; /* Ocupa 45% da largura em telas médias */
+    }
+
+    .services h2 {
+        font-size: 2em; /* Reduz tamanho do título */
+    }
+}
+
+/* Responsividade para telas pequenas */
+@media (max-width: 480px) {
+    .service-box {
+        width: 90%; /* Ocupa 90% da largura em telas pequenas */
+    }
+
+    .service-box .icon {
+        font-size: 40px; /* Reduz o tamanho do ícone */
+    }
+
+    .services h2 {
+        font-size: 1.8em; /* Ajusta título para telas pequenas */
+    }
+}
