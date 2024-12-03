@@ -27,9 +27,12 @@ function renderProducts(produtos) {
                     data-product-image="${produto.imagem_url}">
                 Adicionar ao Carrinho
             </button>
+            <a href="detalhes.html?produtoId=${produto.id}" class="btn-ver">Ver</a>
         `;
         produtosLista.appendChild(produtoCard);
     });
+    
+    
 
     setupAddToCartButtons();
 }

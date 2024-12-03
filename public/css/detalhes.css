@@ -1,0 +1,220 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000; /* Fundo preto */
+    color: #ffffff; /* Texto branco */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap; /* Permite que os itens se ajustem em telas menores */
+}
+
+.imagens-produto {
+    flex: 1;
+    min-width: 300px; /* Garante que a imagem principal ocupe um espaço mínimo */
+}
+
+.imagens-produto img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 8px;
+}
+
+.miniaturas {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    flex-wrap: wrap; /* Permite que as miniaturas se ajustem em telas menores */
+}
+
+.miniaturas img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 1px solid #555; /* Cor de borda escura */
+}
+
+.miniaturas img:hover {
+    border: 1px solid #00ff00; /* Detalhe verde nas miniaturas ao passar o mouse */
+}
+
+.detalhes-produto {
+    flex: 2;
+    min-width: 300px; /* Garante que a descrição do produto ocupe um espaço mínimo */
+}
+
+.detalhes-produto h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #00ff00; /* Título verde */
+}
+
+.preco {
+    font-size: 22px;
+    font-weight: bold;
+    color: #00ff00; /* Preço em verde */
+    margin-bottom: 15px;
+}
+
+.parcelamento {
+    font-size: 14px;
+    color: #bbb; /* Cor mais clara para parcelamento */
+}
+
+.descricao-produto {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #bbb; /* Descrição em cinza claro */
+}
+
+.botao-compra {
+    margin-top: 20px;
+}
+
+.botao-compra button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #00ff00; /* Botão verde */
+    color: black; /* Texto do botão em preto */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.botao-compra button:hover {
+    background-color: #00cc00; /* Verde mais escuro no hover */
+}
+
+.calculo-cep {
+    margin-top: 20px;
+}
+
+.calculo-cep input {
+    padding: 10px;
+    width: 200px;
+    margin-right: 10px;
+    border: 1px solid #555; /* Borda escura no campo de input */
+    border-radius: 5px;
+    background-color: #333; /* Fundo escuro para o input */
+    color: #fff; /* Texto branco no input */
+}
+
+.calculo-cep button {
+    padding: 10px 15px;
+    background-color: #444; /* Botão escuro para calcular */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.calculo-cep button:hover {
+    background-color: #222; /* Botão mais escuro no hover */
+}
+
+#frete-resultado {
+    color: white; /* Define a cor do texto para branco */
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+
+p {
+    color: #bbb; /* Texto em cinza claro */
+}
+
+strong {
+    color: #00ff00; /* Detalhes em verde */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Empilha as seções em telas menores */
+        align-items: center;
+    }
+
+    .imagens-produto,
+    .detalhes-produto {
+        flex: none;
+        width: 100%;
+        max-width: 600px; /* Limita a largura da imagem e detalhes */
+    }
+
+    .miniaturas {
+        justify-content: center; /* Centraliza as miniaturas */
+    }
+
+    .miniaturas img {
+        width: 50px; /* Miniaturas menores em telas pequenas */
+        height: 50px;
+    }
+
+    .detalhes-produto h1 {
+        font-size: 20px; /* Título menor em telas pequenas */
+    }
+
+    .preco {
+        font-size: 18px; /* Preço menor em telas pequenas */
+    }
+
+    .parcelamento,
+    .descricao-produto {
+        font-size: 14px; /* Fontes menores em telas pequenas */
+    }
+
+    
+    
+    .calculo-cep input {
+        font-size: 16px; /* Aumenta o tamanho da fonte em dispositivos menores */
+        padding: 10px; /* Ajusta o padding para telas menores */
+        margin-bottom: 20px;
+    }
+
+    .calculo-cep button {
+        
+        width: 50%; /* Botão ocupa toda a largura em telas pequenas */
+    }
+
+    .botao-compra button {
+        width: 100%; /* Botão ocupa toda a largura em telas pequenas */
+    }
+}
+
+@media (max-width: 480px) {
+    .detalhes-produto h1 {
+        font-size: 18px; /* Título ainda menor em telas muito pequenas */
+    }
+
+    .preco {
+        font-size: 16px; /* Preço ajustado em telas pequenas */
+    }
+
+    .parcelamento,
+    .descricao-produto {
+        font-size: 12px; /* Fontes ainda menores */
+    }
+
+    .calculo-cep input {
+        font-size: 14px; /* Diminui o tamanho da fonte para telas muito pequenas */
+        padding: 8px; /* Menor padding em telas pequenas */
+    }
+
+    .calculo-cep button {
+        width: 100%; /* Botão ocupa toda a largura */
+        padding: 8px; /* Menor padding */
+    }
+
+    .botao-compra button {
+        width: 100%; /* Botão ocupa toda a largura */
+        padding: 12px; /* Padding ajustado */
+    }
+}

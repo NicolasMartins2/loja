@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/detalhes.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <title>Detalhes do Produto</title>
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo">
+            <img src="img/logo tech.png" alt="Logotipo">
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="O que você está buscando?">
+            <button><i class="fa fa-search"></i></button>
+        </div>
+
+        <div class="header-icons">
+<!-- O botão de login do Google -->
+<div id="google-signin-button"></div>
+
+<!-- O texto "Minha conta" que aparecerá após o login (inicialmente escondido com a classe "hidden") -->
+<span id="account-text" class="hidden">Minha conta</span>
+
+
+<!-- O botão de logout (inicialmente escondido com a classe "hidden") -->
+<button id="logout-button" class="hidden" onclick="logout()">Sair</button>
+        </div>
+    </header>
+
+    <nav class="nav-bar">
+        <div class="nav-links">
+            <a href="#">Início</a>
+            <a href="#">Produtos</a>
+            <a href="#">Contato</a>
+        </div>
+    </nav>
+    
+
+  
+    <main style="margin-top: 2rem;">
+        <div class="container">
+            <!-- Seção de Imagens -->
+            <div class="imagens-produto">
+                <img id="imagem-principal" src="" alt="Produto Principal">
+                <div class="miniaturas">
+                    <img id="imagem1" src="" alt="Miniatura 1" onclick="trocarImagem('imagem1')">
+                    <img id="imagem2" src="" alt="Miniatura 2" onclick="trocarImagem('imagem2')">
+                    <img id="imagem3" src="" alt="Miniatura 3" onclick="trocarImagem('imagem3')">
+                    <img id="imagem4" src="" alt="Miniatura 4" onclick="trocarImagem('imagem4')">
+                </div>
+            </div>
+            <!-- Seção de Detalhes -->
+            <div class="detalhes-produto">
+                <h1 id="nome-produto"></h1>
+                <p class="preco" id="preco-produto"></p>
+                <p class="parcelamento" id="parcelamento-produto"></p>
+                <!-- Descrição do produto -->
+                <p class="descricao-produto" id="descricao-produto"></p>
+                <!-- Botão de Comprar -->
+                <div class="botao-compra">
+                    <button>COMPRAR</button>
+                </div>
+                <div class="calculo-cep">
+                    <label for="cep">Digite seu CEP:</label>
+                    <input type="text" id="cep" placeholder="Seu CEP">
+                    <button onclick="calcularFrete()">CALCULAR</button>
+                    <p id="frete-resultado"></p>
+                </div>
+                <p style="margin-top: 20px; font-size: 14px;">
+                    <strong>Entrega:</strong> Grátis em nossa loja. <br>
+                    <strong>Garantia:</strong> Compra protegida. Saiba mais.
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/detalhes.js"></script>
+    <script src="js/google.js"></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
+</body>
+</html>
