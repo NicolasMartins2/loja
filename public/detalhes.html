@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/detalhes.css">
     <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/carrinho-compras.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <title>Detalhes do Produto</title>
 </head>
@@ -63,8 +64,9 @@
                 <p class="descricao-produto" id="descricao-produto"></p>
                 <!-- Botão de Comprar -->
                 <div class="botao-compra">
-                    <button>COMPRAR</button>
+                    <button id="comprar-btn">Comprar</button>
                 </div>
+                
                 <div class="calculo-cep">
                     <label for="cep">Digite seu CEP:</label>
                     <input type="text" id="cep" placeholder="Seu CEP">
@@ -78,6 +80,47 @@
             </div>
         </div>
     </main>
+
+  
+<script>
+    document.getElementById('comprar-btn').addEventListener('click', async () => {
+    // Detalhes do produto
+    const product = {
+        name: document.getElementById('nome-produto').innerText,
+        price: parseFloat(
+            document.getElementById('preco-produto')
+                .innerText.replace('R$', '').replace(',', '').trim()
+        ),
+        image: document.getElementById('imagem-principal').src,
+        quantity: 1, // Pode ser dinâmico, se necessário
+    };
+
+    try {
+        // Enviar requisição para o servidor
+        const response = await fetch('http://localhost:3000/create-checkout-session', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify([product]), // O servidor espera um array de produtos
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            // Redirecionar para a página de checkout do Stripe
+            window.location.href = data.url;
+        } else {
+            console.error('Erro ao criar sessão:', data.error);
+            alert('Ocorreu um erro ao iniciar o checkout. Tente novamente.');
+        }
+    } catch (error) {
+        console.error('Erro de conexão:', error);
+        alert('Erro de conexão com o servidor.');
+    }
+});
+
+</script>
 
     <script src="js/detalhes.js"></script>
     <script src="js/google.js"></script>

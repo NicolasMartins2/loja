@@ -14,6 +14,43 @@
     color: #e2e2e2;
   }
   
+/* Estilização do botão "btn-ver" */
+.btn-ver {
+  text-decoration: none !important;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007BFF; /* Cor azul */
+  color: #fff; /* Texto branco */
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none; /* Remove sublinhado */
+  border: none; /* Remove borda padrão */
+  border-radius: 5px; /* Cantos arredondados */
+  cursor: pointer; /* Cursor de mão ao passar */
+  transition: all 0.3s ease; /* Transição suave para hover */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra leve */
+}
+
+/* Efeito de hover */
+.btn-ver:hover {
+  color: white;
+  background-color: #00cc00; /* Azul mais escuro */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Sombra mais intensa */
+  transform: scale(1.05); /* Leve aumento no tamanho */
+}
+
+
+
+/* Ajuste para dispositivos móveis */
+@media (max-width: 768px) {
+  .btn-ver {
+      font-size: 14px;
+      padding: 8px 16px;
+  }
+}
+
+
   /* Contêiner da lista de produtos */
   .produtos-lista {
     display: grid;
@@ -73,6 +110,7 @@
     cursor: pointer;
     width: 100%;
     transition: background-color 0.3s;
+    margin-bottom: 20px;
   }
   
   /* Efeito hover no botão */

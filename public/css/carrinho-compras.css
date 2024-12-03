@@ -1,17 +1,90 @@
+/* Estilização do botão "checkout-button" */
+.checkout-button {
+  margin-top: 1rem;
+  display: inline-block;
+  padding: 10px 20px; /* Dimensões menores */
+  background-color: #007BFF; /* Azul */
+  color: #fff; /* Texto branco */
+  font-size: 14px; /* Tamanho menor do texto */
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none; /* Remove sublinhado */
+  border: none; /* Remove borda padrão */
+  border-radius: 5px; /* Cantos arredondados */
+  cursor: pointer; /* Cursor de mão ao passar */
+  transition: all 0.3s ease; /* Transição suave para hover */
+  width: 100%; /* Garantir que ocupe toda a largura disponível */
+}
+
+/* Efeito de hover */
+.checkout-button:hover {
+  background-color: #0056b3; /* Azul mais escuro */
+  color: #e6e6e6; /* Leve mudança no branco do texto */
+  transform: scale(1.02); /* Leve aumento no tamanho */
+}
+
+/* Efeito de clique (active) */
+.checkout-button:active {
+  background-color: #00408a; /* Azul ainda mais escuro */
+  box-shadow: 0 2px 4px rgba(0, 123, 255, 0.3); /* Reduzir sombra */
+  transform: scale(0.98); /* Leve redução no tamanho */
+}
+
+/* Responsividade para dispositivos móveis */
+@media (max-width: 768px) {
+  .checkout-button {
+      font-size: 12px; /* Reduz o texto em telas menores */
+      padding: 8px 16px; /* Ajusta o espaçamento */
+  }
+}
+
+/* Estilização para o botão de remover item */
+.remove-item {
+  background-color: #cc0000; /* Fundo vermelho */
+  color: white; /* Texto branco */
+  border: none; /* Remove borda padrão */
+  border-radius: 4px; /* Cantos levemente arredondados */
+  padding: 8px 12px; /* Espaçamento interno */
+  font-size: 14px; /* Tamanho do texto */
+  cursor: pointer; /* Cursor de mão ao passar */
+  transition: background-color 0.3s ease; /* Transição suave para hover */
+}
+
+/* Efeito de hover para remover item */
+.remove-item:hover {
+  background-color: rgb(255, 0, 0); /* Vermelho mais escuro */
+}
+
+/* Estilização para aumentar quantidade e diminuir quantidade */
+.increase-quantity, .decrease-quantity {
+  background-color: #00ff00; /* Fundo verde para aumento e diminuição */
+  color: white; /* Texto branco */
+  border: none; /* Remove borda */
+  border-radius: 4px; /* Cantos arredondados */
+  padding: 5px 10px; /* Espaçamento interno */
+  font-size: 16px; /* Tamanho do texto */
+  cursor: pointer; /* Cursor de mão ao passar */
+  transition: background-color 0.3s ease; /* Transição suave para hover */
+}
+
+.increase-quantity:hover, .decrease-quantity:hover {
+  background-color: #00cc00; /* Verde mais escuro ao passar o mouse */
+}
+
 /* Ícone do carrinho */
 .cart {
-    position: relative;
+  position: relative;
 }
 
 .cart .cart-count {
-    position: absolute;
-    top: -5px;
-    right: -10px;
-    background-color: #00ff00;
-    color: #0b0b21;
-    border-radius: 50%;
-    padding: 4px 8px;
-    font-size: 14px;
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  background-color: #00ff00;
+  color: #0b0b21;
+  border-radius: 50%;
+  padding: 4px 8px;
+  font-size: 14px;
 }
 
 /* Estilo do ícone de carrinho fixo */
@@ -76,6 +149,10 @@
   max-width: 600px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 80vh; /* Altura adaptável */
 }
 
 .cart-modal h2 {
@@ -84,6 +161,7 @@
   text-align: center;
 }
 
+/* Cart Items */
 .cart-modal .cart-item {
   display: flex;
   justify-content: space-between;
@@ -107,10 +185,11 @@
   color: #666;
 }
 
+/* Estilos para o botão de fechar modal */
 .cart-modal .close-modal {
   display: block;
   margin: 20px auto 0;
-  background-color: #00cc00;
+  background-color: #cc0000;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -121,7 +200,7 @@
 }
 
 .cart-modal .close-modal:hover {
-  background-color: #00a800;
+  background-color: #ff0000;
 }
 
 /* Animação de fade-in para o modal */
@@ -134,3 +213,86 @@
   }
 }
 
+
+/* Responsividade geral */
+@media (max-width: 1024px) {
+  .cart-modal-content {
+    width: 90%; /* Ajusta a largura do modal em telas menores */
+    padding: 15px; /* Reduz o espaçamento interno */
+  }
+
+  .cart-modal h2 {
+    font-size: 20px; /* Reduz o tamanho da fonte do título */
+  }
+
+  .cart-modal .cart-item {
+    flex-direction: column; /* Empilha os itens no modal */
+    align-items: center; /* Centraliza os itens */
+  }
+
+  .cart-modal .cart-item img {
+    width: 70px; /* Ajusta o tamanho da imagem */
+    height: 70px;
+  }
+
+  .cart-modal .cart-item h4, .cart-modal .cart-item p {
+    font-size: 14px; /* Reduz o tamanho das fontes */
+  }
+}
+
+@media (max-width: 768px) {
+  .checkout-button {
+    padding: 8px 16px; /* Reduz o espaçamento */
+    font-size: 12px; /* Reduz o tamanho da fonte */
+  }
+
+  .remove-item {
+    font-size: 12px; /* Reduz tamanho do texto */
+    padding: 6px 10px; /* Ajusta o espaçamento interno */
+  }
+
+  .increase-quantity, .decrease-quantity {
+    padding: 5px 10px; /* Ajusta o botão de quantidade */
+    font-size: 14px; /* Reduz o tamanho da fonte */
+  }
+
+  .cart-icon {
+    bottom: 15px; /* Ajusta a posição fixa do ícone */
+    right: 15px;
+    padding: 12px; /* Reduz o tamanho geral */
+    font-size: 20px; /* Reduz o tamanho do ícone */
+  }
+
+  .cart-icon span {
+    padding: 4px 8px; /* Ajusta o espaçamento interno do contador */
+    font-size: 12px; /* Reduz tamanho da fonte */
+  }
+}
+
+@media (max-width: 480px) {
+  .cart-modal-content {
+    width: 100%; /* Usa toda a largura em telas muito pequenas */
+    border-radius: 0; /* Remove os cantos arredondados */
+  }
+
+  .cart-modal .cart-item img {
+    width: 50px; /* Reduz ainda mais as imagens */
+    height: 50px;
+  }
+
+  .cart-modal .cart-item h4, .cart-modal .cart-item p {
+    font-size: 12px; /* Reduz tamanho do texto */
+  }
+
+  .cart-icon {
+    bottom: 10px; /* Ajusta posição do ícone no celular */
+    right: 10px;
+    padding: 10px; /* Reduz o tamanho geral */
+    font-size: 18px; /* Diminui o tamanho do ícone */
+  }
+
+  .close-modal {
+    padding: 8px 16px; /* Reduz o espaçamento do botão de fechar */
+    font-size: 14px; /* Reduz tamanho da fonte */
+  }
+}
